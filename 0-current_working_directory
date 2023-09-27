@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#This prints the absolute path
+pwd
