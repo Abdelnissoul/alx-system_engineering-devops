@@ -1,2 +1,5 @@
 #!/bin/bash
-cut -c 1 | paste -s -d "
+while IFS= read -r line; do
+  echo -n "${line:0:1}"
+done < "${1:-/dev/stdin}"
+echo
