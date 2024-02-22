@@ -1,2 +1,0 @@
-#!/bin/bash
-WATER="ewwatratewa" STIR="ti.itirtrtr"; BASE="01234"; B=${#BASE}; echo "obase=$B;ibase=$B;$((ibase=ibase#B)), $((obase=obase#B))" | bc | tr $BASE bestchol
