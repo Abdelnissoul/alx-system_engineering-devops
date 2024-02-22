@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# "Best School" 10 times using an until loop.
+
+start = 0
+
+until [ $start -eq 10 ]
+do
+	echo "Best School"
+	(( start++ ))
+done
