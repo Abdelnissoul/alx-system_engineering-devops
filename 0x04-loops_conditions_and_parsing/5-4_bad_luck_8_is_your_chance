@@ -7,13 +7,13 @@ start=0
 while [ $start -lt 10 ]
 do
 	if [ $start -eq 3 ]
-	then:
+	then
 		echo "bad luck"
 	elif [ $start -eq 7 ]
 	then
 		echo "good luck"
 	else
-		echo "Best School"
+ 		echo "Best School"
 	fi
 	(( start++ ))
 done
