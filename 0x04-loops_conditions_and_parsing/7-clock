@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# the time for 12 horus and 59 mins.
+# hours from 0 to 12
+# minutes from 1 to 59
+
+hou=0
+
+while [ $hou -le 12 ]
+do
+	echo "Hour: $hou"
+	min=1
+	while [ $min -le 59 ]
+	do
+		echo "$min"
+		(( min++ ))
+	done
+	(( hou++ ))
+done

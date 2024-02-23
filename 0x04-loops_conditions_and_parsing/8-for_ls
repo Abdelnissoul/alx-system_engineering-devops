@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# the contents of the current directory in l st format.
+# the part of the name after the first dash. 
+
+li=$(ls)
+for a in $li; do
+	echo "$a" | cut -d '-' -f2
+done

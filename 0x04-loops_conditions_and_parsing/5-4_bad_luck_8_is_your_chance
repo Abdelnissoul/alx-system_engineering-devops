@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# loops from 1 to 10 which gives bad luck
+# and good luck and best school
+
+start=0
+
+while [ $start -lt 10 ]
+do
+	if [ $start -eq 3 ]
+	then:
+		echo "bad luck"
+	elif [ $start -eq 7 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	(( start++ ))
+done
