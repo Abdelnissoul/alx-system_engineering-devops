@@ -3,6 +3,7 @@
 Gather employee TODO list progress from API.
 """
 
+
 import re
 import requests
 import sys
@@ -13,7 +14,7 @@ def fetch_employee_todo_progress(employee_id):
     """
     Fetches and prints the TODO list progress of an employee.
     """
-    # employee information
+    # Get employee information
     user_url = f"{REST_API}/users/{employee_id}"
     user_response = requests.get(user_url)
     if user_response.status_code != 200:
@@ -23,15 +24,20 @@ def fetch_employee_todo_progress(employee_id):
     user_data = user_response.json()
     employee_name = user_data.get('name')
 
-    # getting TODO list for the employee
+    # Get TODO list for the employee
     todos_url = f"{REST_API}/todos"
     todos_response = requests.get(todos_url)
     todos_data = todos_response.json()
 
+    # Filter tasks for the given employee
     tasks = [task for task in todos_data if task.get('userId') == employee_id]
     completed_tasks = [task for task in tasks if task.get('completed')]
 
-    print(f"Employee {employee_name} is done with tasks({len(completed_tasks)}/{len(tasks)}):")
+    # Print the results
+    print(
+        f"Employee {employee_name} is done with tasks"
+        f"({len(completed_tasks)}/{len(tasks)}):"
+    )
     for task in completed_tasks:
         print(f"\t {task.get('title')}")
 
