@@ -3,12 +3,12 @@
 Gather employee TODO list progress from API.
 """
 
-
 import re
 import requests
 import sys
 
 REST_API = "https://jsonplaceholder.typicode.com"
+
 
 def fetch_employee_todo_progress(employee_id):
     """
@@ -40,6 +40,7 @@ def fetch_employee_todo_progress(employee_id):
     )
     for task in completed_tasks:
         print(f"\t {task.get('title')}")
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
