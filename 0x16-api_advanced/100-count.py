@@ -8,7 +8,7 @@ import requests
 def count_words(subreddit, word_list, after=None, counts={}):
     """
     Recursive function that queries the Reddit API,
-        and prints a sorted count of given keywords
+    and prints a sorted count of given keywords
     """
     if not word_list or word_list == [] or not subreddit:
         return
@@ -21,9 +21,9 @@ def count_words(subreddit, word_list, after=None, counts={}):
         params["after"] = after
 
     answer = requests.get(url,
-                            headers=headers,
-                            params=params,
-                            allow_redirects=False)
+                          headers=headers,
+                          params=params,
+                          allow_redirects=False)
 
     if answer.status_code != 200:
         return
