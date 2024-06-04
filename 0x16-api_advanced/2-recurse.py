@@ -5,7 +5,7 @@ Function to count words in all hot posts of a given Reddit subreddit.
 import requests
 
 
-def count_words(subreddit, word_list, after=None, counts={}):
+def recurse(subreddit, word_list, after=None, counts={}):
     """
     Recursive function that queries the Reddit API, parses the title of all
     hot articles, and prints a sorted count of given keywords.
@@ -39,10 +39,9 @@ def count_words(subreddit, word_list, after=None, counts={}):
 
     after = data["data"]["after"]
     if after:
-        count_words(subreddit, word_list, after, counts)
+        recurse(subreddit, word_list, after, counts)
     else:
         sorted_counts = sorted(counts.items(),
                                key=lambda x: (-x[1], x[0].lower()))
         for word, count in sorted_counts:
             print("{}: {}".format(word.lower(), count))
-
