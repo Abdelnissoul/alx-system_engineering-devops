@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script gracefully reloads Gunicorn by sending a SIGHUP signal to the master process.
+
+# Get the process ID of the Gunicorn master process
+GUNICORN_PID=$(pgrep -f "gunicorn.*web_flask.0-hello_route:app")
+
+if [ -n "$GUNICORN_PID" ]; then
+  echo "Sending HUP signal to Gunicorn master process (PID: $GUNICORN_PID)"
+  kill -HUP "$GUNICORN_PID"
+  echo "Gunicorn reloaded gracefully."
+else
+  echo "Gunicorn master process not found. Make sure Gunicorn is running."
+  exit 1
+fi
+
